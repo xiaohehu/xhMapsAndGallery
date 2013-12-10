@@ -453,10 +453,15 @@
 		//[self imageViewer:sender];
         UINavigationController *fGalleryNavigationController = [[UINavigationController alloc] init];
         fGalleryNavigationController.view.frame = self.view.frame;
+        //[fGalleryNavigationController setToolbarHidden:NO];
+//        [fGalleryNavigationController.view setBackgroundColor:[UIColor clearColor]];
 		localGallery = [[FGalleryViewController alloc] initWithPhotoSource:self];
         localGallery.startingIndex = [sender tag];
         [fGalleryNavigationController addChildViewController:localGallery];
-//		[self.navigationController pushViewController:localGallery animated:YES];
+        [fGalleryNavigationController.view addSubview:localGallery.view];
+		[self.navigationController pushViewController:localGallery animated:YES];
+//        [self addChildViewController:localGallery];
+//        [self.view addSubview:localGallery.view];
         [self addChildViewController:fGalleryNavigationController];
         [self.view addSubview:fGalleryNavigationController.view];
         

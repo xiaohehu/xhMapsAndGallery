@@ -180,11 +180,11 @@
     _innerContainer						= [[UIView alloc] initWithFrame:CGRectZero];
     _scroller							= [[UIScrollView alloc] initWithFrame:CGRectZero];
     _thumbsView							= [[UIScrollView alloc] initWithFrame:CGRectZero];
-//    _toolbar							= [[UIToolbar alloc] initWithFrame:CGRectZero];
+    _toolbar							= [[UIToolbar alloc] initWithFrame:CGRectZero];
     _captionContainer					= [[UIView alloc] initWithFrame:CGRectZero];
     _caption							= [[UILabel alloc] initWithFrame:CGRectZero];
     
-//    _toolbar.barStyle					= UIBarStyleBlackTranslucent;
+   _toolbar.barStyle					= UIBarStyleBlackTranslucent;
     _container.backgroundColor			= [UIColor blackColor];
     
     // listen for container frame changes so we can properly update the layout during auto-rotation or going in and out of fullscreen
@@ -227,7 +227,7 @@
 	[_container addSubview:_thumbsView];
 	
 	[_innerContainer addSubview:_scroller];
-//	[_innerContainer addSubview:_toolbar];
+	[_innerContainer addSubview:_toolbar];
 	[_innerContainer addSubview:_captionContainer];
 //	[_toolbar addSubview:_captionContainer];
 	[_captionContainer addSubview:_caption];
@@ -262,6 +262,9 @@
     [_uib_seeAllButton setTitle:@"See All" forState:UIControlStateNormal];
     [_container addSubview:_uib_seeAllButton];
     [_uib_seeAllButton addTarget:self action:@selector(seeThumbs) forControlEvents:UIControlEventTouchDown];
+    
+    [self enterFullscreen];
+    
 }
 
 -(void)getBack
@@ -662,7 +665,7 @@
 	[UIView beginAnimations:@"galleryIn" context:nil];
 	[UIView setAnimationDelegate:self];
 	[UIView setAnimationDidStopSelector:@selector(enableApp)];
-//	_toolbar.alpha = 1.0;
+	_toolbar.alpha = 1.0;
 	_captionContainer.alpha = 1.0;
 	[UIView commitAnimations];
 }
