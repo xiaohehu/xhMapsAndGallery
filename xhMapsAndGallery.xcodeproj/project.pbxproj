@@ -126,6 +126,10 @@
 		82590E3F183E6FF0002A17EE /* photo-gallery-right.png in Resources */ = {isa = PBXBuildFile; fileRef = 82590E36183E6FF0002A17EE /* photo-gallery-right.png */; };
 		82590E40183E6FF0002A17EE /* photo-gallery-right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 82590E37183E6FF0002A17EE /* photo-gallery-right@2x.png */; };
 		82590E41183E6FF0002A17EE /* photo-gallery-trashcan.png in Resources */ = {isa = PBXBuildFile; fileRef = 82590E38183E6FF0002A17EE /* photo-gallery-trashcan.png */; };
+		8275C7BF18590A50008A74EA /* left_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 8275C7BB18590A50008A74EA /* left_arrow.png */; };
+		8275C7C018590A50008A74EA /* left_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8275C7BC18590A50008A74EA /* left_arrow@2x.png */; };
+		8275C7C118590A50008A74EA /* right_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 8275C7BD18590A50008A74EA /* right_arrow.png */; };
+		8275C7C218590A50008A74EA /* right_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8275C7BE18590A50008A74EA /* right_arrow@2x.png */; };
 		82B46D341857836900B48C49 /* Floor_Plan.pdf in Sources */ = {isa = PBXBuildFile; fileRef = 82F3C2F91857834100A9F5AD /* Floor_Plan.pdf */; };
 		82E84186183E80EC00FAF6D4 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82E84185183E80EC00FAF6D4 /* Social.framework */; };
 		82E84188183E810100FAF6D4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82E84187183E810100FAF6D4 /* QuartzCore.framework */; };
@@ -295,6 +299,10 @@
 		82590E36183E6FF0002A17EE /* photo-gallery-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-gallery-right.png"; sourceTree = "<group>"; };
 		82590E37183E6FF0002A17EE /* photo-gallery-right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-gallery-right@2x.png"; sourceTree = "<group>"; };
 		82590E38183E6FF0002A17EE /* photo-gallery-trashcan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-gallery-trashcan.png"; sourceTree = "<group>"; };
+		8275C7BB18590A50008A74EA /* left_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left_arrow.png; sourceTree = "<group>"; };
+		8275C7BC18590A50008A74EA /* left_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left_arrow@2x.png"; sourceTree = "<group>"; };
+		8275C7BD18590A50008A74EA /* right_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right_arrow.png; sourceTree = "<group>"; };
+		8275C7BE18590A50008A74EA /* right_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right_arrow@2x.png"; sourceTree = "<group>"; };
 		82E84185183E80EC00FAF6D4 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		82E84187183E810100FAF6D4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		82E84189183E810A00FAF6D4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -567,6 +575,10 @@
 				82590DC9183E6F20002A17EE /* embUICollectionViewLayout.m */,
 				82590DCD183E6F20002A17EE /* grfx_album_thumb.png */,
 				82590DCE183E6F20002A17EE /* grfx_album_thumb@2x.png */,
+				8275C7BB18590A50008A74EA /* left_arrow.png */,
+				8275C7BC18590A50008A74EA /* left_arrow@2x.png */,
+				8275C7BD18590A50008A74EA /* right_arrow.png */,
+				8275C7BE18590A50008A74EA /* right_arrow@2x.png */,
 				82590DCF183E6F20002A17EE /* Reachability.h */,
 				82590DD0183E6F20002A17EE /* Reachability.m */,
 				82590DD1183E6F20002A17EE /* xhActivituprovider.h */,
@@ -763,6 +775,7 @@
 				82590E19183E6F20002A17EE /* grfx_gallery_jahn_thumb@2x.jpg in Resources */,
 				82590E06183E6F20002A17EE /* gallery_Quadrangle_1FreedomPlaza_Lobby.jpg in Resources */,
 				82590E3D183E6FF0002A17EE /* photo-gallery-left.png in Resources */,
+				8275C7C118590A50008A74EA /* right_arrow.png in Resources */,
 				82590E23183E6F20002A17EE /* grfx_album_thumb.png in Resources */,
 				82590DFB183E6F20002A17EE /* gallery_jahnProj_posttower_24.jpg in Resources */,
 				82590D5C183E5819002A17EE /* Acccess_noLabels.jpg in Resources */,
@@ -770,7 +783,10 @@
 				82590E41183E6FF0002A17EE /* photo-gallery-trashcan.png in Resources */,
 				82590DF0183E6F20002A17EE /* gallery_jahnProj_kranzlereck_5.jpg in Resources */,
 				82590E17183E6F20002A17EE /* grfx_gallery_amen_thumb@2x.jpg in Resources */,
+				8275C7C018590A50008A74EA /* left_arrow@2x.png in Resources */,
 				82590E3C183E6FF0002A17EE /* photo-gallery-edit-caption.png in Resources */,
+				8275C7C218590A50008A74EA /* right_arrow@2x.png in Resources */,
+				8275C7BF18590A50008A74EA /* left_arrow.png in Resources */,
 				82590E11183E6F20002A17EE /* thumb_online.png in Resources */,
 				82590E3E183E6FF0002A17EE /* photo-gallery-left@2x.png in Resources */,
 				82590DEF183E6F20002A17EE /* gallery_jahnProj_kranzlereck-3.jpg in Resources */,

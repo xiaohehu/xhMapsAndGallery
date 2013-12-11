@@ -75,6 +75,8 @@
 //    [self initSegmentControl];
     [self initSectionButtons];
     [self addGesturesToView];
+    [self initLeftArrowBtn];
+    [self initRightArrow];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -149,7 +151,69 @@
 	albumSections = self.arr_AlbumData;
     [self.collectionView reloadData];
 }
+#pragma mark - ADD Arrow Btns
+-(void)initLeftArrowBtn
+{
+    UIButton *uib_leftArrow = [[UIButton alloc] init];
+    uib_leftArrow = [UIButton buttonWithType:UIButtonTypeCustom];
+    uib_leftArrow.frame = CGRectMake(18.0, 350.0, 29, 69);
+    [uib_leftArrow setBackgroundImage:[UIImage imageNamed:@"left_arrow.png"] forState:UIControlStateNormal];
+    [self.view addSubview:uib_leftArrow];
+    [uib_leftArrow addTarget:self action:@selector(tapLeftArrow) forControlEvents:UIControlEventTouchDown];
+}
+-(void)tapLeftArrow
+{
+    if (self.sectionIndex == 0) {
+        self.sectionIndex = 5;
+    }
+    else
+    {
+        self.sectionIndex--;
+    }
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:
+					  _plistName ofType:@"plist"];
+	// Build the array from the plist
+	NSMutableArray *array = [[NSMutableArray alloc] initWithContentsOfFile:path];
+    self.sumOfSections = [array count];
+	NSMutableArray *array_1 = [[NSMutableArray alloc] init];
+    [array_1 addObject:[array objectAtIndex:sectionIndex]];
+	self.arr_AlbumData = array_1;
+	albumSections = self.arr_AlbumData;
+    [self.collectionView reloadData];
+}
 
+-(void)initRightArrow
+{
+    UIButton *uib_rightArrow = [[UIButton alloc] init];
+    uib_rightArrow = [UIButton buttonWithType:UIButtonTypeCustom];
+    uib_rightArrow.frame = CGRectMake(977.0, 350.0, 29, 69);
+    [uib_rightArrow setBackgroundImage:[UIImage imageNamed:@"right_arrow.png"] forState:UIControlStateNormal];
+    [self.view addSubview:uib_rightArrow];
+    [uib_rightArrow addTarget:self action:@selector(tapRightArrow) forControlEvents:UIControlEventTouchDown];
+}
+
+-(void)tapRightArrow
+{
+    if (self.sectionIndex == 5) {
+        self.sectionIndex = 0;
+    }
+    else
+    {
+        self.sectionIndex++;
+    }
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:
+					  _plistName ofType:@"plist"];
+	// Build the array from the plist
+	NSMutableArray *array = [[NSMutableArray alloc] initWithContentsOfFile:path];
+    self.sumOfSections = [array count];
+	NSMutableArray *array_1 = [[NSMutableArray alloc] init];
+    [array_1 addObject:[array objectAtIndex:sectionIndex]];
+	self.arr_AlbumData = array_1;
+	albumSections = self.arr_AlbumData;
+    [self.collectionView reloadData];
+}
 #pragma mark - Add gestures
 -(void)addGesturesToView
 {
