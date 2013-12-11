@@ -41,7 +41,7 @@ static float kOffsets = 20;
     self.numOfCells = self.windowWidth / (kCellSize + kOffsets);
     self.sumOfCells = [self.collectionView numberOfItemsInSection:0];
 
-    self.sizOfBigCell = 3;
+    self.sizOfBigCell = 2;
 }
 //If collection view is slided veritcally, calculate # of pages and then multiply height of window
 - (CGSize)collectionViewContentSize

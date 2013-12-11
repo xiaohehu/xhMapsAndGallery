@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		821EF2591858C22A00109367 /* nav_bar_BG.png in Resources */ = {isa = PBXBuildFile; fileRef = 821EF2571858C22A00109367 /* nav_bar_BG.png */; };
+		821EF25A1858C22A00109367 /* nav_bar_BG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 821EF2581858C22A00109367 /* nav_bar_BG@2x.png */; };
 		8258D712183E92F9002D01EB /* embWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8258D710183E92F9002D01EB /* embWebViewController.m */; };
 		8258D713183E92F9002D01EB /* embWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8258D711183E92F9002D01EB /* embWebViewController.xib */; };
 		82590D16183E4982002A17EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82590D15183E4982002A17EE /* Foundation.framework */; };
@@ -145,6 +147,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		821EF2571858C22A00109367 /* nav_bar_BG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_bar_BG.png; sourceTree = "<group>"; };
+		821EF2581858C22A00109367 /* nav_bar_BG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_bar_BG@2x.png"; sourceTree = "<group>"; };
 		8258D70F183E92F9002D01EB /* embWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = embWebViewController.h; path = xhMapsAndGallery/embWebViewController.h; sourceTree = SOURCE_ROOT; };
 		8258D710183E92F9002D01EB /* embWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = embWebViewController.m; path = xhMapsAndGallery/embWebViewController.m; sourceTree = SOURCE_ROOT; };
 		8258D711183E92F9002D01EB /* embWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = embWebViewController.xib; path = xhMapsAndGallery/embWebViewController.xib; sourceTree = SOURCE_ROOT; };
@@ -604,6 +608,8 @@
 				82590E36183E6FF0002A17EE /* photo-gallery-right.png */,
 				82590E37183E6FF0002A17EE /* photo-gallery-right@2x.png */,
 				82590E38183E6FF0002A17EE /* photo-gallery-trashcan.png */,
+				821EF2571858C22A00109367 /* nav_bar_BG.png */,
+				821EF2581858C22A00109367 /* nav_bar_BG@2x.png */,
 			);
 			path = FGallery;
 			sourceTree = "<group>";
@@ -703,6 +709,7 @@
 				82590DF9183E6F20002A17EE /* gallery_jahnProj_mj-1999K_020.jpg in Resources */,
 				82590E02183E6F20002A17EE /* gallery_jahnProj_sony3.bmp in Resources */,
 				82590E1C183E6F20002A17EE /* grfx_gallery_views_thumb.jpg in Resources */,
+				821EF25A1858C22A00109367 /* nav_bar_BG@2x.png in Resources */,
 				82590DF3183E6F20002A17EE /* gallery_jahnProj_layout-skyline_10.jpg in Resources */,
 				82590DFC183E6F20002A17EE /* gallery_jahnProj_posttower_26.jpg in Resources */,
 				82590DDD183E6F20002A17EE /* _mg_3421-_mg_3423.jpg in Resources */,
@@ -713,6 +720,7 @@
 				82590E00183E6F20002A17EE /* gallery_jahnProj_sony-04.jpg in Resources */,
 				82590E0E183E6F20002A17EE /* grfx_Intro_03@2x.jpg in Resources */,
 				82590E1F183E6F20002A17EE /* embAlbumViewController.xib in Resources */,
+				821EF2591858C22A00109367 /* nav_bar_BG.png in Resources */,
 				82590DE9183E6F20002A17EE /* gallery_jahnProj_HTp_205_Night_ht165_B.jpg in Resources */,
 				82590E16183E6F20002A17EE /* grfx_gallery_amen_thumb.jpg in Resources */,
 				82590E24183E6F20002A17EE /* grfx_album_thumb@2x.png in Resources */,

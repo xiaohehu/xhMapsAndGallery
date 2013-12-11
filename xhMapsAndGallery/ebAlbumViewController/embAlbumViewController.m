@@ -459,9 +459,7 @@
         localGallery.startingIndex = [sender tag];
         [fGalleryNavigationController addChildViewController:localGallery];
         [fGalleryNavigationController.view addSubview:localGallery.view];
-		[self.navigationController pushViewController:localGallery animated:YES];
-//        [self addChildViewController:localGallery];
-//        [self.view addSubview:localGallery.view];
+//		[self.navigationController pushViewController:localGallery animated:YES];
         [self addChildViewController:fGalleryNavigationController];
         [self.view addSubview:fGalleryNavigationController.view];
         

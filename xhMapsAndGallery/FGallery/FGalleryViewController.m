@@ -116,10 +116,21 @@
          _scroller.layer.borderColor = [[UIColor redColor] CGColor];
          _scroller.layer.borderWidth = 2.0;
          */
+        
+//        [self.navigationController.navigationBar setFrame:CGRectMake(0.0, 0.0, self.navigationController.navigationBar.frame.size.width, 35.0)];
+        self.navigationController.navigationBar.hidden = YES;
         float systemVersion = [[[UIDevice currentDevice] systemVersion] floatValue];
         if (systemVersion >= 7.0)
         {
             self.edgesForExtendedLayout = UIRectEdgeNone;
+            [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"nav_bar_BG.png"] forBarPosition:UIBarPositionAny
+                                                  barMetrics:UIBarMetricsDefault];
+            [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
+        }
+        else
+        {
+            [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"nav_bar_BG.png"]  forBarMetrics:UIBarMetricsDefault];
+            [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
         }
 
 	}
@@ -184,7 +195,7 @@
     _captionContainer					= [[UIView alloc] initWithFrame:CGRectZero];
     _caption							= [[UILabel alloc] initWithFrame:CGRectZero];
     
-   _toolbar.barStyle					= UIBarStyleBlackTranslucent;
+//    _toolbar.barStyle					= UIBarStyleBlackTranslucent;
     _container.backgroundColor			= [UIColor blackColor];
     
     // listen for container frame changes so we can properly update the layout during auto-rotation or going in and out of fullscreen
@@ -197,14 +208,14 @@
     _scroller.showsHorizontalScrollIndicator	= NO;
     
     // setup caption
-    _captionContainer.backgroundColor			= [UIColor colorWithWhite:0.0 alpha:.35];
+    _captionContainer.backgroundColor			= [UIColor colorWithRed:133.0/255.0 green:185.0/255.0 blue:217.0/255.0 alpha:1.0];
     _captionContainer.hidden					= YES;
     _captionContainer.userInteractionEnabled	= NO;
     _captionContainer.exclusiveTouch			= YES;
-    _caption.font								= [UIFont systemFontOfSize:14.0];
+    _caption.font								= [UIFont fontWithName:@"futura" size:14.0];
     _caption.textColor							= [UIColor whiteColor];
     _caption.backgroundColor					= [UIColor clearColor];
-    _caption.textAlignment						= NSTextAlignmentCenter;
+    _caption.textAlignment						= NSTextAlignmentLeft;
     _caption.shadowColor						= [UIColor blackColor];
     _caption.shadowOffset						= CGSizeMake( 1, 1 );
     
@@ -251,17 +262,17 @@
     [self reloadGallery];
     
     //Init Customized Buttons (Back and See all)
-    _uib_backButton         = [UIButton buttonWithType:UIButtonTypeSystem];
-    _uib_backButton.frame = CGRectMake(20.0, 50.0, 100.0, 50.0);
-    [_uib_backButton setTitle:@"Back" forState:UIControlStateNormal];
-    [_container addSubview:_uib_backButton];
-    [_uib_backButton addTarget:self action:@selector(getBack) forControlEvents:UIControlEventTouchDown];
-    
-    _uib_seeAllButton       = [UIButton buttonWithType:UIButtonTypeSystem];
-    _uib_seeAllButton.frame = CGRectMake(140.0, 50.0, 100.0, 50.0);
-    [_uib_seeAllButton setTitle:@"See All" forState:UIControlStateNormal];
-    [_container addSubview:_uib_seeAllButton];
-    [_uib_seeAllButton addTarget:self action:@selector(seeThumbs) forControlEvents:UIControlEventTouchDown];
+//    _uib_backButton         = [UIButton buttonWithType:UIButtonTypeSystem];
+//    _uib_backButton.frame = CGRectMake(20.0, 50.0, 100.0, 50.0);
+//    [_uib_backButton setTitle:@"Back" forState:UIControlStateNormal];
+//    [_container addSubview:_uib_backButton];
+//    [_uib_backButton addTarget:self action:@selector(getBack) forControlEvents:UIControlEventTouchDown];
+//    
+//    _uib_seeAllButton       = [UIButton buttonWithType:UIButtonTypeSystem];
+//    _uib_seeAllButton.frame = CGRectMake(140.0, 50.0, 100.0, 50.0);
+//    [_uib_seeAllButton setTitle:@"See All" forState:UIControlStateNormal];
+//    [_container addSubview:_uib_seeAllButton];
+//    [_uib_seeAllButton addTarget:self action:@selector(seeThumbs) forControlEvents:UIControlEventTouchDown];
     
     [self enterFullscreen];
     
@@ -374,6 +385,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
 	self.view.frame = CGRectMake(0.0, 0.0, 1024, 768);
     _isActive = YES;
     
@@ -389,7 +401,7 @@
 	
 	// update status bar to be see-through
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent animated:animated];
-	
+	[[UIApplication sharedApplication] setStatusBarHidden:YES];
 	// init with next on first run.
 	if( _currentIndex == -1 ) [self next];
 	else [self gotoImageByIndex:_currentIndex animated:NO];
@@ -531,20 +543,34 @@
 - (void)setUseThumbnailView:(BOOL)useThumbnailView
 {
     
-    UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle: NSLocalizedString(@"Back", @"") style: UIBarButtonItemStyleBordered target: nil action: nil];
-    [[self navigationItem] setBackBarButtonItem: newBackButton];
-    [newBackButton release];
+    UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle: NSLocalizedString(@"BACK TO GALLERY", @"") style: UIBarButtonItemStyleBordered target: self action: @selector(getBack) ];
+    [newBackButton setTitleTextAttributes:@{ UITextAttributeFont: [UIFont fontWithName:@"Futura" size:17.0], UITextAttributeTextColor: [UIColor blackColor]} forState:UIControlStateNormal];
+//    [[self navigationItem] setBackBarButtonItem: newBackButton];
+    UIBarButtonItem *leftSpacer = [[UIBarButtonItem alloc]
+                                       initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                       target:nil action:nil];
+    leftSpacer.width = 100;
+    [self.navigationItem setLeftBarButtonItems:[NSArray arrayWithObjects:leftSpacer, newBackButton, nil] animated:NO];
+//    [self.navigationItem setLeftBarButtonItem:newBackButton];
     
     _useThumbnailView = useThumbnailView;
     if( self.navigationController ) {
         if (_useThumbnailView) {
-            UIBarButtonItem *btn = [[[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"See all", @"") style:UIBarButtonItemStylePlain target:self action:@selector(handleSeeAllTouch:)] autorelease];
-            [self.navigationItem setRightBarButtonItem:btn animated:YES];
+            UIBarButtonItem *btn = [[[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"SEE ALL", @"") style:UIBarButtonItemStyleBordered target:self action:@selector(handleSeeAllTouch:)] autorelease];
+            [btn setTitleTextAttributes:@{ UITextAttributeFont: [UIFont fontWithName:@"Futura" size:17.0], UITextAttributeTextColor: [UIColor blackColor]} forState:UIControlStateNormal];
+            UIBarButtonItem *rightSpacer = [[UIBarButtonItem alloc]
+                                               initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                               target:nil action:nil];
+            rightSpacer.width = 100;
+            [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:rightSpacer, btn, nil] animated:NO];
+//            [self.navigationItem setRightBarButtonItem:btn animated:YES];
         }
         else {
             [self.navigationItem setRightBarButtonItem:nil animated:NO];
         }
     }
+    
+    [newBackButton release];
 }
 
 
@@ -653,10 +679,10 @@
     
 	UIApplication* application = [UIApplication sharedApplication];
 	if ([application respondsToSelector: @selector(setStatusBarHidden:withAnimation:)]) {
-		[[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade]; // 3.2+
+		[[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade]; // 3.2+
 	} else {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-		[[UIApplication sharedApplication] setStatusBarHidden:NO animated:NO]; // 2.0 - 3.2
+		[[UIApplication sharedApplication] setStatusBarHidden:YES animated:NO]; // 2.0 - 3.2
 #pragma GCC diagnostic warning "-Wdeprecated-declarations"
 	}
     
@@ -723,8 +749,8 @@
 //				NSInteger containerHeight = height+kCaptionPadding*2;
 //				_captionContainer.frame = CGRectMake(0, -containerHeight, _container.frame.size.width, containerHeight );
                 _captionContainer.frame = CGRectMake( 0, _scroller.frame.size.height-kToolbarHeight, _scroller.frame.size.width, kToolbarHeight );
-				_caption.frame = CGRectMake(kCaptionPadding, kCaptionPadding, captionWidth, height );
-				
+				_caption.frame = CGRectMake(125, (kToolbarHeight-height)/2, captionWidth, height );
+
 				// show caption bar
 				_captionContainer.hidden = NO;
 			}
@@ -749,6 +775,16 @@
 {
     if (!_hideTitle){
         [self setTitle:[NSString stringWithFormat:@"%i %@ %i", _currentIndex+1, NSLocalizedString(@"of", @"") , [_photoSource numberOfPhotosForPhotoGallery:self]]];
+        
+        UILabel* titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(0,0, 200, 40)];
+        titleLabel.text=self.navigationItem.title;
+        titleLabel.textColor=[UIColor whiteColor];
+        titleLabel.backgroundColor =[UIColor clearColor];
+        titleLabel.adjustsFontSizeToFitWidth=YES;
+        titleLabel.textAlignment= NSTextAlignmentCenter;
+        titleLabel.font = [UIFont fontWithName:@"Futura" size:18.0];
+        self.navigationItem.titleView=titleLabel;
+        
     }else{
         [self setTitle:@""];
     }
