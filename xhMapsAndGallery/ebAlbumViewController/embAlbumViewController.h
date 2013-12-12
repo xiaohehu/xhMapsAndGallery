@@ -12,6 +12,7 @@
 #import "FGalleryViewController.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import "embWebViewController.h"
+#import "ViewController.h"
 
 @interface embAlbumViewController : UIViewController <UIScrollViewDelegate, UIGestureRecognizerDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout, FGalleryViewControllerDelegate, UIDocumentInteractionControllerDelegate, UIWebViewDelegate>
 {

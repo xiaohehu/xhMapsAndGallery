@@ -440,6 +440,9 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"tapOnCell" object:self];
+    
 	UIButton *tmp = [[UIButton alloc] init];
 	int currentIndex = indexPath.section;
 	tmp.tag = indexPath.row;

@@ -24,6 +24,25 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    [[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(hideBackBtn:)
+												 name:@"tapOnCell"
+											   object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(unhideBackBtn:)
+												 name:@"backToGallery"
+											   object:nil];
+    
+}
+
+-(void)hideBackBtn:(NSNotification *)pNotification
+{
+    uib_back.alpha = 0.0;
+}
+
+-(void)unhideBackBtn:(NSNotification *)pNotification
+{
+    uib_back.alpha = 1.0;
 }
 
 - (void)didReceiveMemoryWarning

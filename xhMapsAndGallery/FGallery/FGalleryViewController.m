@@ -281,6 +281,7 @@
 -(void)getBack
 {
 //    [self.navigationController popViewControllerAnimated:YES];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"backToGallery" object:self];
     [self.parentViewController.view removeFromSuperview];
     //[self removeFromParentViewController];
 }
